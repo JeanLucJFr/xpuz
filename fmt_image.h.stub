@@ -1,0 +1,26 @@
+#ifndef __fmt_image_h
+#define __fmt_image_h
+
+#include "base_image.h"
+
+class fmtImage : public Image {
+	public:
+		fmtImage( const char *filename, int autocrop=1 );
+		fmtImage();
+		~fmtImage();
+
+		/* This function may be omitted if the file format doesn't support it.
+		 * Just delete the following line and the function definition in the
+		 * corresponding .C file */
+		const char *GetExtensionData( unsigned char code );
+
+	protected:
+		/* OPTION 1: The fmt class loader takes a FILE* */
+		int LoadImageFile(FILE *fp);
+		int LoadImageFile(const char *fname) {return Image::LoadImageFile(fname);}
+
+		/* OPTION 2: The fmt class loader takes a filename */
+		/*int LoadImageFile(const char *fname);*/
+};
+
+#endif

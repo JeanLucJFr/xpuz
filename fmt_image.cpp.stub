@@ -1,0 +1,70 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "fmt_image.h"
+
+fmtImage::fmtImage(const char *filename, int autocrop )
+	: Image(filename, autocrop)
+{
+	LoadImageFile( filename );
+	if (autocrop)	CropImage();
+}
+
+fmtImage::fmtImage() {
+	/*nothing*/
+}
+
+fmtImage::~fmtImage() {
+	/*nothing*/
+}
+
+/* This function may be omitted if the file format doesn't support it. Just
+ * delete the following line and the prototype in the corresponding .H file. */
+const char *fmtImage::GetExtensionData( unsigned char code ) { return 0; }
+
+
+/*
+   LoadImageFile must fill in the following fields:
+		int	width, height;								// image dimensions
+		byte	*data;										// image data
+		byte	Red[256], Green[256], Blue[256];		// Colormap-Data
+		boolean	HasColormap;
+		int		ColorMapSize;						// number of colors
+		int		Background;							// background color
+	The data is one byte per pixel, the bytes index the Red[], Green[], and
+	Blue[] arrays, so you have 24-bit color with an 8-bit palette. If the
+	image format contains more than 256 distinct colors, LoadImageFile must
+	quantize it down to 256. You must malloc the data, but don't worry about
+	freeing it. The superclass will take care of that.
+
+	If there are any errors opening the file or decoding the image, the best
+	that can be done is to print an error message to stderr and exit().
+
+	I'm not sure what the HasColormap field is for. In the GIF loader, it
+	might end up as 0 depending on the file headers. What kind of GIF doesn't
+	have a palette? Fortunately nothing outside the GIF loader uses it. I
+	decree that it shall be set to 1 by all loaders until I figure out what
+	it's good for.
+
+	The Background field isn't used either, but it's probably a good idea to
+	set it. If your image file doesn't have a "background" color, call
+	DefaultBackground() after you've filled in all the other fields and one
+	will be chosen for you.
+
+	The return value is also not used anywhere, but to be consistent with the
+	GIF loader you should return 0 to indicate success.
+
+	If you prefer to open and close the image file yourself, you can take a
+	const char *filename arg instead of FILE *fp. If you take the FILE *fp
+	arg, all you have to do is read from it.
+
+	Obviously, there is room for improvement in the interface.
+ */
+/*****************************/
+int fmtImage::LoadImageFile(FILE *fp)
+/*****************************/
+{
+	fprintf(stderr, "This file format is just a stub!\n");
+	exit(1);
+}

@@ -1,0 +1,59 @@
+
+This is the original copyright for xjig
+-------------------------------------------
+
+       Copyright 1996, Helmut Hoenig, Heiligenhaus/Bad Camberg
+
+       email (for any comments):
+               Helmut.Hoenig@hub.de
+
+       smail (for gifts :-)
+               Helmut Hoenig
+               Hopfenstrasse 8a
+               65520 Bad Camberg
+               GERMANY
+
+        ********************************************************
+
+           By the way, I am collecting banknotes! If you want
+            to join into my collection, get any bill of your
+           country, sign it on the backside and send it to me
+                   so I will pin it on my world map.
+            (Don't forget the exact location for the pin :-)
+          But you can also just send me a picture postcard ...
+
+        ********************************************************
+
+       Permission to use, copy, modify, and distribute this soft-
+       ware  for  any  purpose and without fee is hereby granted,
+       provided that the above copyright  notice  appear  in  all
+       copies
+
+ -----------------------------------------------------------------------------
+
+  The loading routine for gif images was extracted from the gif-loader
+  of the xv-package. It was rearranged, enclosed into a C++-class and
+  enhanced to use extension data for some game specific features.
+
+  Here is the copyright note, that was contained in the original loader:
+
+| xvgif.c  -  GIF loading code for 'xv'.  Based strongly on...
+|
+| gif2ras.c - Converts from a Compuserve GIF (tm) image to a Sun Raster image.
+|
+| Copyright (c) 1988, 1989 by Patrick J. Naughton
+|
+| Author: Patrick J. Naughton
+| naughton@wind.sun.com
+|
+| Permission to use, copy, modify, and distribute this software and its
+| documentation for any purpose and without fee is hereby granted,
+| provided that the above copyright notice appear in all copies and that
+| both that copyright notice and this permission notice appear in
+| supporting documentation.
+|
+| This file is provided AS IS with no warranties of any kind.  The author
+| shall have no liability with respect to the infringement of copyrights,
+| trade secrets or any patents by this file or any part thereof.  In no
+| event will the author be liable for any lost revenue or profits or
+| other special, indirect and consequential damages.
