@@ -80,7 +80,7 @@ Display *dpy;
 int     scr;
 Window  win;
 GC          gc;
-const char *xpuzver = "2.6.4";
+const char *xpuzver = "2.7.1";
 int texture_mode=0;             // mode for texture mapping depending on depth
 
 int stylecount =11;
@@ -1161,7 +1161,7 @@ if(bestfit==1)
                 //  printf( "%g\n", current_time );
 
                if ((unsigned long)current_time>next_sec) {
-                    char     buffer[20];
+                    char     buffer[50];
                  
                   if (gamepaused) {pausetime= (unsigned long)current_time-next_sec;}
 

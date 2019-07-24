@@ -6,7 +6,7 @@ SYNOPSIS
        xpuz <options>
 
 DESCRIPTION
-       xpuz  is a fork of xjig, a jigsaw puzzle.
+       xpuz is a fork of xjig, a jigsaw puzzle.
        
        Any image-file in jpeg-format can be used as the source for
        the puzzle,  which is then randomly created regarding the
@@ -146,7 +146,7 @@ SEE ALSO
 
 xpuz is a fork of xjig
 
-xjig Copyright 1996, Helmut Hoenig, Heiligenhaus
+the original xjig is Copyright 1996, Helmut Hoenig, Heiligenhaus
 
        email (for any comments):
                Helmut.Hoenig@hub.de
