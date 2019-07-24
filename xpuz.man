@@ -1,0 +1,166 @@
+.TH xpuz 6 "July-10-2013" "X Version 11"
+.SH NAME
+xpuz \- the jigsaw puzzle
+.SH SYNOPSIS
+.B xpuz
+<options>
+.SH DESCRIPTION
+.I xpuz
+is a fork of xjig 2.5, and has several extra options. 
+xpuz creates a jigsaw puzzles from JPEG image files.
+The pieces are randomly created according to the command line options. 
+.PP
+
+
+.SH SPECIAL EFFECTS
+
+Tiles are freely formed and rotatable.
+
+Tiles snap together very easy if they are dropped somewhere close to another
+matching tile, when turned in the correct direction.
+
+Puzzles can be single or doubled sided so you might have to flip
+the tiles to the correct side to let them snap together.
+
+
+.SH CONTROLS
+The usual way to move the pieces on the screen should be to drag the piece
+with the left mouse button to their destination. There is an option to allow 
+the pieces to automatically rotate when dragging, the way they would if you 
+pull or push them with your fingertip on a table.
+
+In addition, the following movements are possible:
+
+.ta 19
+.nf
+.in +2
+click left:	rotate 90 degrees left
+click right:	rotate 90 degrees right
+click middle:	flip tile to backside
+drag left:	rotator drag (as mentioned above)
+   +middle:	pause rotator drag for a straight drag
+drag middle:	straight drag
+   +left:	pause drag for a static rotation
+   +click left:	rotate 90 degrees left during drag
+   +click right:	rotate 90 degrees right during drag
+CTRL+click left:	same as click middle
+.in -2
+.fi
+.PP
+The right button has actually the same functionality as the middle button
+so that 2 button systems shouldn't have problems. Only the "drag middle+click right"
+move will not work in that mode, and the flipping has to be done with the help
+of the CTRL-key.
+
+.SH OPTIONS
+.SS "Puzzle Selection"
+.TP 12
+.B -file \fIname\fP
+use the specified file as the source image for the puzzle
+.TP 12
+.B -skill \fIp\fP
+set the skill level. use with -file as a quick launch. \fIp\fP can be 1 to 5.
+.TP 12
+.B -side \fIp\fP
+select the side of the image to be on top, if you don't like the mess
+with the double sided tiles.
+.SS "Size Selection"
+.B
+.TP 12
+.B -w \fIx\fP
+Select number of tiles in horizontal direction. The Images are automatically
+rotated in portrait orientation before they are sliced. Therefore \fIx\fP
+usually should be smaller than \fIy\fP of the next option. The default
+is four.
+.TP 12
+.B -h \fIy\fP
+Select number of tiles in vertical direction respectively. The default
+is six.
+.TP 12
+.B -ts \fIn\fP
+Select average tile width. Instead of explicitly specifying the number of tiles
+by using the previous options -w and -h, the average tile width in pixels can be
+selected and the values for \fIx\fP and \fIy\fP above are computed according to
+to the selected size.
+.SS "Image Options"
+.TP 12
+.B -ww \fIx\fP
+Select width of image in pixels. This can be used to scale the image before
+playing for the case that a very large image is the source.
+.TP 12
+.B -wh \fIh\fP
+Select height of image in pixels. If only one of -ww and -wh, the aspect ratio
+is kept constant.
+.TP 12
+.B -no_crop
+The image is usually automatically cropped, since many images are surrounded by
+frames or textual comments. The cropping stops at a reasonable amount of colors
+per line or row. If this is not desired of if you want to puzzle with painted
+images with few color, you should disable this feature.
+.TP 12
+.B -no_flip
+Before tiling takes place, a landscape image is rotated to portrait mode, which
+effects successive options like -w or -ww. If this is not desired, you can
+switch this feature off.
+
+.SS "X-Window options"
+.TP 12
+.B -display \fIname\fP
+Select the display to connect to.
+
+.TP 12
+.B -no_shm
+When the program was build with support of the MIT-SHM extension, it might crash
+when started to display on a remote machine or X-terminal. You can deselect the
+usage of the extension with this option.
+
+.SS "Miscellaneous"
+.TP 12
+.B -no_anim
+Turns off animation of rotation and flipping, for the case the machine isn't
+fast enough to make it look nice.
+
+.SH ZOOMING & PANNING
+For not losing tiles at the window border and for getting more workspace,
+the game has some zooming
+and panning features to control the view on your desk. They are controlled via
+the keyboard with the following functionality:
+
+.ta 19
+.nf
+.in +2
+Cursor Keys:	Pan View
+Page-Up or Add:	Zoom in
+Page-Down or Sub:	Zoom out
+Home:	Reset to original size
+End:	Zoom to fit all puzzle pieces into the screen area
+.in -2
+.fi
+
+.SH COPYRIGHT
+The original xjig 2.4 was developed by Helmut Hoenig in 1996. 
+The copyright is show below.
+-----------------------------------------------------------------
+
+Copyright 1996, Helmut Hoenig, Heiligenhaus
+.nf
+.TP 8
+email (for any comments):
+Helmut.Hoenig@hub.de
+.TP 5
+smail (for gifts):
+   Helmut Hoenig
+   Hopfenstrasse 8a
+   65520 Bad Camberg
+   GERMANY
+.PP
+.ce 8
+
+********************************************************
+.fi
+.PP
+Permission to use, copy, modify, and distribute this
+software for any purpose and without
+fee is hereby granted, provided that the above copyright
+notice appear in all copies.
+.fi

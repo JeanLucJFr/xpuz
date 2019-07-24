@@ -1,0 +1,62 @@
+XCOMM =====================================================================
+XCOMM   Imakefile - xpuz v2.7.1 - Les Hardy - July 10, 2013
+XCOMM =====================================================================
+
+XCOMM set the compiler that you like,
+XCOMM gcc should suit, since the libraries are not needed. But I had problem
+XCOMM with the optimize-options on gcc-2.7.0. You should try to use
+XCOMM optimization on your version, but if it doesn't work, a compiler bug
+XCOMM might be the reason...
+
+XCOMM           CXX = g++ -g 
+
+XCOMM On some machines (like on linux) you can gain speed by using the
+XCOMM MIT-SHM extension for transfering images to the server via shared
+XCOMM memory. If your system doesn't support that or if you don't see any
+XCOMM enhancement, you could remove the -DUSE_MIT_SHM flag from the CXXFLAGS.
+
+        USE_MIT_SHM = -DUSE_MIT_SHM
+
+XCOMM There is a speed optimization in not doing any checks about crossing
+XCOMM the image boundaries during the texture mapping routines. Some extra
+XCOMM memory therefore surround the image for not crashing due to nonallocated
+XCOMM memory access. You can switch range-checking on by uncommenting the
+XCOMM following flag.
+
+XCOMM    RANG_CHECK = -DRANGE_CHECK
+
+   
+XCOMM #######################################################################
+
+               SRCS = xpuz.cpp objects.cpp stack.cpp imgbuff.cpp puzzle.cpp \
+                      real.cpp vec2.cpp vec2list.cpp mat2.cpp \
+                      color_mapper.cpp base_image.cpp gif_image.cpp ximage.cpp \
+                      jpeg_image.cpp
+
+           CXXFLAGS = $(USE_MIT_SHM) $(RANG_CHECK)
+
+    LOCAL_LIBRARIES = $(XLIB)  -Wl,-Bstatic -ljpeg -Wl,-Bdynamic -lm
+
+               OBJS = xpuz.o objects.o stack.o imgbuff.o puzzle.o \
+                      real.o vec2.o vec2list.o mat2.o \
+                      color_mapper.o base_image.o gif_image.o ximage.o \
+                      jpeg_image.o 
+
+	
+
+xpuz: $(OBJS) $(DEPLIBS)
+	$(RM) $@
+	$(CXX) -o $@ $(OBJS) $(LDOPTIONS) $(LOCAL_LIBRARIES) $(LDLIBS) $(EXTRA_LOAD_FLAGS)
+
+AllTarget(xpuz)
+InstallProgram(xpuz,$(BINDIR))
+InstallManPage(xpuz,$(MANDIR))
+DependTarget()
+CleanTarget()
+
+
+xpuz.o:
+	$(CXX) $(CXXFLAGS) -c  xpuz.cpp -o $@
+
+XCOMM .C.o:
+XCOMM 	$(CXX) $(CFLAGS) -c $< -o $@

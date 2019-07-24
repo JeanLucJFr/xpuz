@@ -1,0 +1,165 @@
+
+NAME
+       xpuz - the jigsaw puzzle
+
+SYNOPSIS
+       xpuz <options>
+
+DESCRIPTION
+       xpuz  is a fork of xjig, a jigsaw puzzle.
+       
+       Any image-file in jpeg-format can be used as the source for
+       the puzzle,  which is then randomly created regarding the
+       sizes selected by the options.
+
+       The control should be as intuitive as possible. There are options
+       to either have pieces rotate freely or stay fixed while you drag 
+       them to the desired  destination and drop them so they will 
+       snap together easily when close to a neighboured tile.
+
+
+SPECIAL EFFECTS
+       Pieces are freely formed and rotatable.
+
+       Pieces snap together very easy if they are dropped some-
+       where close to another matching piece, when turned in the
+       correct direction.
+
+       Puzzles can be doubled sided so you might have to flip the
+       tiles to the correct side to let them snap together.
+
+      
+
+CONTROLS
+       The usual way to move the pieces on the screen  should  be
+       to drag the piece with the left mouse button to their des-
+       tination by pulling them at on edge.  The piece will auto-
+       matically  rotate  like if you pull or push them with your
+       fingertip on a table.
+
+       In addition, the following movements are possible:
+
+         click left:        rotate 90 degrees left
+         click right:       rotate 90 degrees right
+         click middle:      flip tile to backside
+         drag left:         rotator drag (as mentionned above)
+            +middle:        pause rotator drag for a straight drag
+         drag middle:       straight drag
+            +left:          pause drag for a static rotation
+            +click left:    rotate 90 degrees left during drag
+            +click right:   rotate 90 degrees right during drag
+         CTRL+click left:   same as click middle
+
+       The right button has actually the  same  functionality  as
+       the  middle button so that 2 button systems shouldn't have
+       problems. Only the "drag middle+click right" move will not
+       work  in  that  mode, and the flipping has to be done with
+       the help of the CTRL-key.
+
+
+OPTIONS
+   Piece Selection
+       -file name  use the specified file as the source image for
+                   the puzzle
+
+       -side p     select the side of the image to be on top, if
+                   you don't want a double sided puzzle.
+
+   Size Selection
+       -w x        Select the number of pieces in horizontal direc-
+                   tion. The Images are automatically rotated  in
+                   portrait  orientation  before they are sliced.
+                   Therefore x usually should be smaller  than  y
+                   of the next option.
+
+       -h y        Select  number  of tiles in vertical direction
+                   respectively.
+
+       -ts n       Select average tile width. Instead of  explic-
+                   itly  specifying  the number of tiles by using
+                   the previous options -w and  -h,  the  average
+                   tile  width  in pixels can be selected and the
+                   values for x and y above are computed  accord-
+                   ing to to the selected size.
+
+   Image Options
+       -ww x       Select  width  of image in pixels. This can be
+                   used to scale the image before playing for the
+                   case that a very large image is the source.
+
+       -wh h       Select  height of image in pixels. If only one
+                   of -ww and -wh, the aspect ratio is kept  con-
+                   stant.
+
+       -no_crop    The  image  is  usually automatically cropped,
+                   since many images are surrounded by frames  or
+                   textual  comments.  The  cropping  stops  at a
+                   reasonable amount of colors per line  or  row.
+                   If  this is not desired of if you want to puz-
+                   zle with painted images with  few  color,  you
+                   should disable this feature.
+
+       -no_flip    Before  tiling  takes place, a landscape image
+                   is rotated to  portrait  mode,  which  effects
+                   successive  options like -w or -ww. If this is
+                   not desired, you can switch this feature  off.
+
+
+   X-Window options
+       -display name
+                   Select the display to connect to.
+
+
+       -no_shm     When the program was build with support of the
+                   MIT-SHM extension, it might crash when started
+                   to display on a remote machine or  X-terminal.
+                   You  can  deselect  the usage of the extension
+                   with this option.
+
+
+   Miscellaneous
+       -no_anim    Turns off animation of rotation and  flipping,
+                   for  the case the machine isn't fast enough to
+                   make it look nice.
+
+
+ZOOMING & PANNING
+       For not losing tiles at the window border and for  getting
+       more workspace, the game has some zooming and panning fea-
+       tures to control the view on  your  desk.  They  are  con-
+       trolled via the keyboard with the following functionality:
+
+         Cursor Keys:       Pan View
+         Page-Up or Add:    Zoom in
+         Page-Down or Sub:  Zoom out
+         Home:              Reset to original size
+         End:               Set maximum zooming to view all tiles
+
+       The image quality usually suffers from zooming, since gif-
+       images  are  usually  dithered  to be viewed best in their
+       original size.  This also applies to the size options  -ww
+       and -wh.
+
+
+SEE ALSO
+       X(1), convert(1), xv(1), ppmquant(1)
+
+xpuz is a fork of xjig
+
+xjig Copyright 1996, Helmut Hoenig, Heiligenhaus
+
+       email (for any comments):
+               Helmut.Hoenig@hub.de
+
+       smail (for gifts):
+               Helmut Hoenig
+               Hopfenstrasse 8a
+               65520 Bad Camberg
+               GERMANY
+
+     
+       Permission to use, copy, modify, and distribute this soft-
+       ware for any purpose and without fee  is  hereby  granted,
+       provided  that  the  above  copyright notice appear in all
+       copies.
+

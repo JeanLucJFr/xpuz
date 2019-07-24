@@ -1,0 +1,11 @@
+
+Making the game can be done with the supplied Makefiles, or with
+the Imakefile, by using:
+	xmkmf
+	make depend
+	make
+
+You should probably check the comments comments at the top of the
+Imakefile for setting additional parameters.
+
+

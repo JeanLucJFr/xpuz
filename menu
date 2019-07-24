@@ -1,0 +1,1 @@
+?package(xpuz):needs="x11" section="Games/Puzzles"  title="xpuz" command="/usr/games/xpuz"
